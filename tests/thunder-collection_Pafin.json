@@ -1,0 +1,143 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Pafin",
+    "dateExported": "2023-07-30T20:04:10.717Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "cc4eefdf-f679-4524-bf4b-322660557efa",
+            "colId": "4b4e414d-ad36-498b-b64f-fef3db98e93f",
+            "containerId": "",
+            "name": "Create User",
+            "url": "localhost:3000/api/users/create",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-07-30T11:50:12.631Z",
+            "modified": "2023-07-30T19:41:21.413Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE2OTA3NDM1MjV9.a906TqvQPuEp59T0ixbopbNsZ51_eozJqfd88gfZtys"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"test\",\n  \"email\": \"test\",\n  \"password\": \"test\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "67023ce4-7e2b-4cd3-bbad-2d4b993c3fa8",
+            "colId": "4b4e414d-ad36-498b-b64f-fef3db98e93f",
+            "containerId": "",
+            "name": "Get all users",
+            "url": "localhost:3000/api/users/",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-07-30T11:50:31.744Z",
+            "modified": "2023-07-30T20:00:40.952Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE2OTA3NDM1MjV9.a906TqvQPuEp59T0ixbopbNsZ51_eozJqfd88gfZtys"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "6ae21c9f-190e-4ccb-8cdb-a9a3b2724927",
+            "colId": "4b4e414d-ad36-498b-b64f-fef3db98e93f",
+            "containerId": "",
+            "name": "Get single user",
+            "url": "localhost:3000/api/users/7",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-07-30T19:11:20.177Z",
+            "modified": "2023-07-30T19:56:11.992Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE2OTA3NDM1MjV9.a906TqvQPuEp59T0ixbopbNsZ51_eozJqfd88gfZtys"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "7091b81a-56cf-4614-a47c-3e062cf49778",
+            "colId": "4b4e414d-ad36-498b-b64f-fef3db98e93f",
+            "containerId": "",
+            "name": "Update user",
+            "url": "localhost:3000/api/users/7",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-07-30T19:12:05.623Z",
+            "modified": "2023-07-30T19:56:19.010Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE2OTA3NDM1MjV9.a906TqvQPuEp59T0ixbopbNsZ51_eozJqfd88gfZtys"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"test2\",\n    \"email\": \"test\",\n    \"password\": \"test\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "22140e89-57f7-42ce-afce-622b72b427bc",
+            "colId": "4b4e414d-ad36-498b-b64f-fef3db98e93f",
+            "containerId": "",
+            "name": "Delete user",
+            "url": "localhost:3000/api/users/y",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-07-30T19:19:38.649Z",
+            "modified": "2023-07-30T19:54:19.201Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE2OTA3NDM1MjV9.a906TqvQPuEp59T0ixbopbNsZ51_eozJqfd88gfZtys"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b3e19a9d-6600-4081-a6e9-10bbbab93371",
+            "colId": "4b4e414d-ad36-498b-b64f-fef3db98e93f",
+            "containerId": "",
+            "name": "Login/get JWT",
+            "url": "localhost:3000/api/login",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2023-07-30T19:21:28.495Z",
+            "modified": "2023-07-30T19:22:53.330Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
