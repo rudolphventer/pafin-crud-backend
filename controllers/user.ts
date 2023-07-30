@@ -9,7 +9,11 @@ interface user {
 };
 
 
-// Getting all users
+/**
+ * Controller for a get all users request
+ * @param request 
+ * @param response 
+ */
 const getUsers = (request: Request, response: Response) => {
     dbClient.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
       if (error) {

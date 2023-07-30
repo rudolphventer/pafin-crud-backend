@@ -5,6 +5,6 @@ import { router } from '../routes/router';
 const app = express();
 
 app.use(bodyParser.json());
-app.use("/users", router);
+app.use('/', router);
 
 export default app;
