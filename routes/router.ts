@@ -8,6 +8,7 @@ const router = Router();
 router.get('/users', verifyToken, user.getUsers);
 router.post("/users/create", user.createUser);
 router.get("/users/:id", user.getUserById);
+router.put("/users/:id", user.updateUserById);
 
 router.post('/login', auth.login);
 

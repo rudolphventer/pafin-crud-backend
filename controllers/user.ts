@@ -33,6 +33,7 @@ const getUsers = (request: Request, response: Response) => {
 const createUser = async (request: Request, response: Response) => {
 	const { name, email, password } = request.body;
 	const passwordHash: string = await hashPassword(password);
+
 	dbClient.query('INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING *', [name, email, passwordHash], (error, results) => {
 		if (error) {
 			throw error
@@ -48,6 +49,7 @@ const createUser = async (request: Request, response: Response) => {
  */
 const getUserById = (request: Request, response: Response) => {
 	const id = parseInt(request.params.id)
+
 	dbClient.query('SELECT * FROM users WHERE id = $1', [id], (error, results) => {
 		if (error) {
 			throw error
@@ -57,8 +59,25 @@ const getUserById = (request: Request, response: Response) => {
 	})
 }
 
-// Updating a user
+/**
+ * Controller for updating a single user record's details by ID
+ * @param request 
+ * @param response 
+ */
+const updateUserById = async (request: Request, response: Response) => {
+	const id = parseInt(request.params.id)
+	const { name, email, password } = request.body;
+	const passwordHash: string = await hashPassword(password);
+
+	dbClient.query('UPDATE users SET name = $1, email = $2, password = $3 WHERE id = $4',
+    [name, email, passwordHash, id], (error, results) => {
+		if (error) {
+			throw error
+		}
+		response.status(200).send(`Updated user ID:${id}`)
+	})
+}
 
 // Deleting a user
 
-export default { getUsers, createUser, getUserById };
+export default { getUsers, createUser, getUserById, updateUserById };
