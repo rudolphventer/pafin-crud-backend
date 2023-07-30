@@ -7,5 +7,6 @@ const router = Router();
 
 router.get('/users', verifyToken, user.getUsers);
 router.post('/login', auth.login);
+router.post("/users/create", user.createUser);
 
 export { router };
