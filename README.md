@@ -31,7 +31,7 @@ I like to use this portable PostgreSQL version from here: https://github.com/gar
 ```
 CREATE ROLE apiRole WITH LOGIN PASSWORD 'password';
 
-ALTER ROLE apiRole SUPERUSER;
+ALTER ROLE apiRole WITH SUPERUSER;
 
 CREATE DATABASE api;
 
