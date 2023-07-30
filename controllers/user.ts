@@ -41,10 +41,24 @@ const createUser = async (request: Request, response: Response) => {
 	})
 }
 
-// Getting a single user
+/**
+ * Controller for fetching a single user by ID
+ * @param request 
+ * @param response 
+ */
+const getUserById = (request: Request, response: Response) => {
+	const id = parseInt(request.params.id)
+	dbClient.query('SELECT * FROM users WHERE id = $1', [id], (error, results) => {
+		if (error) {
+			throw error
+		}
+		let resData: user[] = results.rows;
+		response.status(200).json(resData)
+	})
+}
 
 // Updating a user
 
 // Deleting a user
 
-export default { getUsers, createUser };
+export default { getUsers, createUser, getUserById };
