@@ -12,14 +12,8 @@
                 "method": "POST",
                 "url": {
                     "raw": "localhost:3000/api/users/create",
-                    "path": [
-                        "api",
-                        "users",
-                        "create"
-                    ],
-                    "host": [
-                        "localhost"
-                    ],
+                    "path": ["api", "users", "create"],
+                    "host": ["localhost"],
                     "port": "3000"
                 },
                 "header": [
@@ -45,13 +39,8 @@
                 "method": "GET",
                 "url": {
                     "raw": "localhost:3000/api/users/",
-                    "path": [
-                        "api",
-                        "users"
-                    ],
-                    "host": [
-                        "localhost"
-                    ],
+                    "path": ["api", "users"],
+                    "host": ["localhost"],
                     "port": "3000"
                 },
                 "header": [
@@ -78,14 +67,8 @@
                 "method": "GET",
                 "url": {
                     "raw": "localhost:3000/api/users/7",
-                    "path": [
-                        "api",
-                        "users",
-                        "7"
-                    ],
-                    "host": [
-                        "localhost"
-                    ],
+                    "path": ["api", "users", "7"],
+                    "host": ["localhost"],
                     "port": "3000"
                 },
                 "header": [
@@ -102,14 +85,8 @@
                 "method": "PUT",
                 "url": {
                     "raw": "localhost:3000/api/users/7",
-                    "path": [
-                        "api",
-                        "users",
-                        "7"
-                    ],
-                    "host": [
-                        "localhost"
-                    ],
+                    "path": ["api", "users", "7"],
+                    "host": ["localhost"],
                     "port": "3000"
                 },
                 "header": [
@@ -135,14 +112,8 @@
                 "method": "DELETE",
                 "url": {
                     "raw": "localhost:3000/api/users/y",
-                    "path": [
-                        "api",
-                        "users",
-                        "y"
-                    ],
-                    "host": [
-                        "localhost"
-                    ],
+                    "path": ["api", "users", "y"],
+                    "host": ["localhost"],
                     "port": "3000"
                 },
                 "header": [
@@ -159,13 +130,8 @@
                 "method": "POST",
                 "url": {
                     "raw": "localhost:3000/api/login",
-                    "path": [
-                        "api",
-                        "login"
-                    ],
-                    "host": [
-                        "localhost"
-                    ],
+                    "path": ["api", "login"],
+                    "host": ["localhost"],
                     "port": "3000"
                 },
                 "body": {

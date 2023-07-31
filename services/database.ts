@@ -11,4 +11,3 @@ export const dbClient = new pg.Pool({
     password: process.env.DB_PASSWORD,
     port: parseInt(<string>process.env.DB_PORT, 10) || 5432,
 });
-  

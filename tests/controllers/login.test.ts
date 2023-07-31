@@ -8,55 +8,71 @@ process.env.ADMIN_PASSWORD = testPassword;
 
 const mockRequest = {
     body: {
-        "username": testUsername,
-        "password": testPassword
-      },
+        username: testUsername,
+        password: testPassword,
+    },
 } as Request;
 
 const mockUnauthRequest = {
     body: {
-        "username": 'wrongUser',
-        "password": 'wrongPass'
-      },
+        username: 'wrongUser',
+        password: 'wrongPass',
+    },
 } as Request;
 
+/**
+ * A utility method for functionally mocking the express response object
+ * @param statusCallback
+ * @param messageCallback
+ */
 const mockResponseFactory = (statusCallback, messageCallback) => {
     return {
-        status: (response) => { 
+        status: (response) => {
             statusCallback(response);
-            return { json: (message) => messageCallback(message), send: (message) => messageCallback(message) }
-        }
+            return { json: (message) => messageCallback(message), send: (message) => messageCallback(message) };
+        },
     } as Response;
 };
 
-describe("Test login.ts", () => {
-
-    test("Should return a JWT authorization header", async () => {
+describe('Test login.ts', () => {
+    test('Should return a JWT authorization header', async () => {
         let statusCode;
         let responseContent;
 
-        const request = await login.login(mockRequest, mockResponseFactory(
-            (status) => {statusCode = status}, 
-            (message) => {responseContent = message} 
-        ))
+        const request = await login.login(
+            mockRequest,
+            mockResponseFactory(
+                (status) => {
+                    statusCode = status;
+                },
+                (message) => {
+                    responseContent = message;
+                },
+            ),
+        );
 
         expect(statusCode).toEqual(200);
         expect(responseContent.Authorization.slice(0, 6)).toEqual('Bearer');
         expect(responseContent.Authorization.length).toBeGreaterThan(50);
     });
 
-    test("Should return a 400 error for unauthorized requests", async () => {
+    test('Should return a 400 error for unauthorized requests', async () => {
         let statusCode;
         let responseContent;
-        
 
-        const request = await login.login(mockUnauthRequest, mockResponseFactory(
-            (status) => {statusCode = status}, 
-            (message) => {responseContent = message} 
-        ))
+        const request = await login.login(
+            mockUnauthRequest,
+            mockResponseFactory(
+                (status) => {
+                    statusCode = status;
+                },
+                (message) => {
+                    responseContent = message;
+                },
+            ),
+        );
 
         expect(statusCode).toEqual(400);
         expect(responseContent).toEqual('Incorrect username or password');
     });
-
 });
