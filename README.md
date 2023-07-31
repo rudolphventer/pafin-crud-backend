@@ -34,9 +34,9 @@ Replace `xyz` with the relevant configuration variables, the admin login credent
 I like to use this portable PostgreSQL version from here: https://github.com/garethflowers/postgresql-portable, you can download it and run it without installing anything. After launching the exe you can set up a table to test this API using the following commands:
 
 ```
-CREATE ROLE apiRole WITH LOGIN PASSWORD 'password';
+CREATE ROLE apirole WITH LOGIN PASSWORD 'password';
 
-ALTER ROLE apiRole WITH SUPERUSER;
+ALTER ROLE apirole WITH SUPERUSER;
 
 CREATE DATABASE api;
 
@@ -54,11 +54,11 @@ CREATE TABLE users (
 INSERT INTO users (name, email, password) VALUES ('TestUser', 'test@test.com', 'password1'), ('TestUser2', 'test2@test.com', 'password2');
 ```
 
-The above commands will quickly set up the database for this assessment and are not best practice in any way. The `apiRole` account created here is what should be used for your `DB_USER` and `DB_PASSWORD` in you .env file.
+The above commands will quickly set up the database for this assessment. I am no SQL wizard so this is very much not best practice in any way and can certainly be done more concisely and securely. The `apiRole` account created here is what should be used for your `DB_USER` and `DB_PASSWORD` in you .env file.
 
 ## Manual testing
 
-Once the API and database are running you can start testing the endpoints. You will need to get a JWT token by making a `GET` request to the `/api/signin` endpoint (`localhost:3000/api/login` if you are running the API locally).
+Once the API and database are running you can start testing the endpoints. You will need to get a JWT token by making a `GET` request to the `/api/login` endpoint (`localhost:3000/api/login` if you are running the API locally).
 
 The request body should contain your admin credentials from your .env file like so:
 
@@ -77,7 +77,9 @@ The response body will contain the header you need and should look like so:
 }
 ```
 
-The rest of your requests should be made after adding the authorization header from that response to the request headers. I have left [Postman](https://www.postman.com/) and [Thunder Client](https://www.thunderclient.com/) API test collections in the `./tests/` directory that can be imported into either program for easy manual testing of endpoints.
+The rest of your requests should be made after adding the authorization header from that response to the request headers.
+
+I have left [Postman](https://www.postman.com/) and [Thunder Client](https://www.thunderclient.com/) API test collections in the `./tests/` directory that can be imported into either program for easy manual testing of endpoints. If you use these requests you will have to replace the authorization header with one from your own `/api/login` request as our JWT secrets will be different.
 
 ## Automated Testing
 
