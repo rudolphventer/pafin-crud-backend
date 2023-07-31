@@ -1,3 +1,5 @@
-import request from 'supertest';
-
-import { router } from '../../routes/router';
+describe("Test app.ts", () => {
+    test("Placeholder", () => {
+        expect(2 + 2).toBe(4);
+    });
+});

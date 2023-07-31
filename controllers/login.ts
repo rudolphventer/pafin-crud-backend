@@ -11,11 +11,11 @@ const login = (request: Request, response: Response) => {
 
 	try {
 		const JWT: string | undefined = generateJWT(username, password);
-		response
-			.status(200)
-			.json({
-				Authorization: `Bearer ${JWT}`
-			});
+		if(JWT) {
+			response.status(200).json({Authorization: `Bearer ${JWT}`})
+		} else {
+			response.status(400).send(`Incorrect username or password`)
+		}
 	} catch (error) {
 		return response.status(500).send(error);
 	}
