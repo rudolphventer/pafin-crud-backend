@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { dbClient } from '../services/database';
 import { hashPassword } from '../services/passwordTools';
+import { validationResult } from '../middlewares/validation';
 
 interface user {
     id: string;
@@ -36,6 +37,15 @@ const getUsers = (request: Request, response: Response) => {
  * @param response
  */
 const createUser = async (request: Request, response: Response) => {
+    const errors = validationResult(request);
+
+    if (!errors.isEmpty()) {
+        return response.status(400).json({
+            success: false,
+            errors: errors.array(),
+        });
+    }
+
     const { name, email, password } = request.body;
     const passwordHash: string = await hashPassword(password);
 
@@ -43,9 +53,6 @@ const createUser = async (request: Request, response: Response) => {
         'INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING *',
         [name, email, passwordHash],
         (error, results) => {
-            if (error) {
-                throw error;
-            }
             if (error) {
                 response.status(500).send(`Could not create user`);
                 throw error;
@@ -65,10 +72,16 @@ const createUser = async (request: Request, response: Response) => {
  * @param response
  */
 const getUserById = (request: Request, response: Response) => {
-    const id = parseInt(request.params.id);
-    if (Number.isNaN(id)) {
-        return response.status(400).send('Invalid user ID');
+    const errors = validationResult(request);
+
+    if (!errors.isEmpty()) {
+        return response.status(400).json({
+            success: false,
+            errors: errors.array(),
+        });
     }
+
+    const id = parseInt(request.params.id);
     dbClient.query('SELECT * FROM users WHERE id = $1', [id], (error, results) => {
         if (error) {
             response.status(500).send(`Could not get ID:${id}`);
@@ -90,10 +103,16 @@ const getUserById = (request: Request, response: Response) => {
  * @param response
  */
 const updateUserById = async (request: Request, response: Response) => {
-    const id = parseInt(request.params.id);
-    if (Number.isNaN(id)) {
-        return response.status(400).send('Invalid user ID');
+    const errors = validationResult(request);
+
+    if (!errors.isEmpty()) {
+        return response.status(400).json({
+            success: false,
+            errors: errors.array(),
+        });
     }
+
+    const id = parseInt(request.params.id);
     const { name, email, password } = request.body;
     const passwordHash: string = await hashPassword(password);
 
@@ -120,11 +139,16 @@ const updateUserById = async (request: Request, response: Response) => {
  * @param response
  */
 const deleteUserById = (request: Request, response: Response) => {
-    const id = parseInt(request.params.id);
-    if (Number.isNaN(id)) {
-        return response.status(400).send('Invalid user ID');
+    const errors = validationResult(request);
+
+    if (!errors.isEmpty()) {
+        return response.status(400).json({
+            success: false,
+            errors: errors.array(),
+        });
     }
 
+    const id = parseInt(request.params.id);
     dbClient.query('DELETE FROM users WHERE id = $1', [id], (error, results) => {
         if (error) {
             response.status(500).send(`Could not delete user ID:${id}`);

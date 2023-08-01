@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Pafin",
-    "dateExported": "2023-07-30T20:04:10.717Z",
+    "dateExported": "2023-08-01T16:30:42.849Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -14,7 +14,7 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2023-07-30T11:50:12.631Z",
-            "modified": "2023-07-30T19:41:21.413Z",
+            "modified": "2023-07-31T22:02:33.004Z",
             "headers": [
                 {
                     "name": "Authorization",
@@ -24,7 +24,7 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\": \"test\",\n  \"email\": \"test\",\n  \"password\": \"test\"\n}",
+                "raw": "{\n  \"name\": \"test\",\n  \"email\": \"test@test.com\",\n  \"password\": \"testing\"\n}",
                 "form": []
             },
             "tests": []
@@ -67,7 +67,7 @@
             "method": "GET",
             "sortNum": 30000,
             "created": "2023-07-30T19:11:20.177Z",
-            "modified": "2023-07-30T19:56:11.992Z",
+            "modified": "2023-07-31T22:02:55.721Z",
             "headers": [
                 {
                     "name": "Authorization",
@@ -82,11 +82,11 @@
             "colId": "4b4e414d-ad36-498b-b64f-fef3db98e93f",
             "containerId": "",
             "name": "Update user",
-            "url": "localhost:3000/api/users/7",
+            "url": "localhost:3000/api/users/1",
             "method": "PUT",
             "sortNum": 40000,
             "created": "2023-07-30T19:12:05.623Z",
-            "modified": "2023-07-30T19:56:19.010Z",
+            "modified": "2023-07-31T22:03:13.647Z",
             "headers": [
                 {
                     "name": "Authorization",
@@ -96,7 +96,7 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"name\": \"test2\",\n    \"email\": \"test\",\n    \"password\": \"test\"\n}",
+                "raw": "{\n  \"name\": \"test\",\n  \"email\": \"test@test.com\",\n  \"password\": \"testing\"\n}",
                 "form": []
             },
             "tests": []
@@ -106,11 +106,11 @@
             "colId": "4b4e414d-ad36-498b-b64f-fef3db98e93f",
             "containerId": "",
             "name": "Delete user",
-            "url": "localhost:3000/api/users/y",
+            "url": "localhost:3000/api/users/1",
             "method": "DELETE",
             "sortNum": 50000,
             "created": "2023-07-30T19:19:38.649Z",
-            "modified": "2023-07-30T19:54:19.201Z",
+            "modified": "2023-07-31T22:03:22.473Z",
             "headers": [
                 {
                     "name": "Authorization",
@@ -129,7 +129,7 @@
             "method": "POST",
             "sortNum": 60000,
             "created": "2023-07-30T19:21:28.495Z",
-            "modified": "2023-07-30T19:22:53.330Z",
+            "modified": "2023-07-31T21:58:05.710Z",
             "headers": [],
             "params": [],
             "body": {

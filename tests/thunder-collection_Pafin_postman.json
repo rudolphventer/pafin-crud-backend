@@ -1,6 +1,6 @@
 {
     "info": {
-        "_postman_id": "d55d1e7a-57da-4c33-9576-de22fec5876b",
+        "_postman_id": "882603f4-3894-414e-b93e-ac950b1f3b2a",
         "name": "Pafin",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": ""
@@ -29,7 +29,7 @@
                             "language": "json"
                         }
                     },
-                    "raw": "{\n  \"name\": \"test\",\n  \"email\": \"test\",\n  \"password\": \"test\"\n}"
+                    "raw": "{\n  \"name\": \"test\",\n  \"email\": \"test@test.com\",\n  \"password\": \"testing\"\n}"
                 }
             }
         },
@@ -84,8 +84,8 @@
             "request": {
                 "method": "PUT",
                 "url": {
-                    "raw": "localhost:3000/api/users/7",
-                    "path": ["api", "users", "7"],
+                    "raw": "localhost:3000/api/users/1",
+                    "path": ["api", "users", "1"],
                     "host": ["localhost"],
                     "port": "3000"
                 },
@@ -102,7 +102,7 @@
                             "language": "json"
                         }
                     },
-                    "raw": "{\n    \"name\": \"test2\",\n    \"email\": \"test\",\n    \"password\": \"test\"\n}"
+                    "raw": "{\n  \"name\": \"test\",\n  \"email\": \"test@test.com\",\n  \"password\": \"testing\"\n}"
                 }
             }
         },
@@ -111,8 +111,8 @@
             "request": {
                 "method": "DELETE",
                 "url": {
-                    "raw": "localhost:3000/api/users/y",
-                    "path": ["api", "users", "y"],
+                    "raw": "localhost:3000/api/users/1",
+                    "path": ["api", "users", "1"],
                     "host": ["localhost"],
                     "port": "3000"
                 },

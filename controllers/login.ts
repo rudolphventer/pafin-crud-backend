@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { generateJWT } from '../services/jwtAuth';
+import { validationResult } from 'express-validator';
 
 /**
  * Login controller
@@ -7,6 +8,15 @@ import { generateJWT } from '../services/jwtAuth';
  * @param response
  */
 const login = (request: Request, response: Response) => {
+    const errors = validationResult(request);
+
+    if (!errors.isEmpty()) {
+        return response.status(400).json({
+            success: false,
+            errors: errors.array(),
+        });
+    }
+
     const { username, password } = request.body;
 
     try {
